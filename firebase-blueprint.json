@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with authentication and contact information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "provider": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "updatedAt"]
+    },
+    "UserLedgerState": {
+      "title": "UserLedgerState",
+      "description": "Cloud synchronized financial ledger, expenses, and savings goals",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "personal": { "type": "object" },
+        "shop": { "type": "object" },
+        "rseq": { "type": "number" },
+        "name": { "type": "object" },
+        "gstin": { "type": "object" },
+        "opts": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Stores user account information"
+    },
+    "/users/{userId}/sync/{syncId}": {
+      "schema": { "$ref": "#/entities/UserLedgerState" },
+      "description": "Stores the user's synced personal finance data"
+    }
+  }
+}

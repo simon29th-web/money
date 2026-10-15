@@ -1,0 +1,8 @@
+{
+  "name": "PennyPop",
+  "description": "Fun, smart expense tracking with intelligent auto-categorization, animated goals, and instant cloud sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
